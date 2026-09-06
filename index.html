@@ -1,0 +1,340 @@
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+sidebar {
+  background-color: linear-gradient(19deg, rgba(87, 199, 133, 1) 0%, rgba(237, 221, 83, 1) 100%);
+  ;
+  height: 100%;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  z-index: 10;
+}
+
+.sidebar-item {
+  margin: 6px;
+  padding: 6px;
+  height: 26px;
+  width: 26px;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.sidebar-item.active {
+
+}
+
+iframe {
+  width: calc(100% - 50px - 10px);
+  height: calc(100vh - 20px);
+  margin: 10px;
+  margin-right: 0px;
+  border-radius: 8px;
+}
+
+.sidebar-divider {
+  background-color: #ffffff22;
+  /* auto is being stupid
+    100vh minus height of 1 object 7 times minus the margin and padding of 7 objects (multiplied twice bc margin and padding on top and bottom) */
+  margin-bottom: calc(100vh - 26px * 9 - ((6px + 6px) * 2) * 9);
+}
+
+.sidebar-item-descriptor {
+  position: fixed;
+  right: 25px;
+  opacity: 0;
+  transform: translateY(-32px);
+  text-align: left;
+  background-color: black;
+  border-radius: 10px;
+  padding: 8px;
+  color: white;
+  font-size: 12px;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.5s 0.2s, right 0.5s 0.2s;
+  font-family: "Mulish", serif;
+}
+
+.sidebar-item:hover .sidebar-item-descriptor {
+  opacity: 1;
+  right: 55px;
+}
+
+#bottom-menu,
+#open-bottom-menu {
+  position: absolute;
+  bottom: -40px;
+  transition-duration: 0.5s;
+  height: 50px;
+  left: 0;
+  right: 0;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  z-index: 5;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  color: black;
+}
+
+#bottom-menu {
+  width: fit-content;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+#open-bottom-menu {
+  bottom: 10px;
+  height: 15px;
+  width: 70px;
+  z-index: 5;
+  filter: drop-shadow(0 0 16px #fff5);
+}
+
+#bottom-menu[enabled=true] {
+  bottom: 10px;
+  color: white;
+  filter: drop-shadow(0 0 16px #fff5);
+  z-index: 0;
+}
+
+#open-bottom-menu[enabled=true] {
+  bottom: 60px;
+  filter: drop-shadow(0 0 0 #fff5);
+  opacity: 0;
+}
+
+alert {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  color: white;
+  background-color: color-mix(in srgb, #d46c6c 80%, #00000000 20%);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 10px #d46c6c;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeIn 1s ease-in-out forwards, fadeOut 1s ease-in-out forwards 14s;
+  cursor: pointer;
+}
+
+alert h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+alert p {
+  font-size: 16px;
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: -50px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 10px;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    top: 10px;
+  }
+
+  100% {
+    opacity: 0;
+    top: -50px;
+  }
+}
+
+#fullscreen {
+  display: none;
+}
+
+welcome {
+  position: absolute;
+  width: 400px;
+  height: 600px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+  overflow: hidden;
+  transition-duration: 1s;
+  display: none;
+  opacity: 0;
+  /* display: flex; */
+  background-color: color-mix(in srgb, var(--color-3) 95%, #00000000 5%);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px var(--color-3);
+  z-index: 1000;
+}
+
+welcome section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(.53, 0, .5, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+#blur {
+  backdrop-filter: blur(8px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+}
+@media screen and (max-width: 660px) {
+  sidebar {
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    user-select: none;
+    z-index: 10;
+    overflow: scroll;
+    justify-content: center;
+  }
+
+  iframe {
+    width: calc(100% - 20px);
+    height: calc(100% - 50px - 20px);
+    margin: 10px;
+    margin-right: 0px;
+    border-radius: 8px;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  #bottom-menu,
+  #open-bottom-menu,
+  .sidebar-item-descriptor {
+    display: none;
+  }
+
+  #openblank {
+    display: none;
+  }
+
+  #fullscreen {
+    display: block;
+  }
+}
+@property --gradient-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 28%;
+}
+@property --gradient-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 38%;
+}
+
+:root {
+  --text-color: #fff;
+  --bg-1: #5a189a;
+  --bg-2: #10002b;
+  --color-1: #E0AAFF;
+  --color-2: #7B2CBF;
+  --color-3: #3C096C;
+  --color-4: #240046;
+  --gradient-x: 28%;
+  --gradient-y: 38%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-family: "Mulish", serif;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  color: var(--text-color);
+  background-color: black;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  isolation: isolate;
+  user-select: none;
+  
+  background: rgb(16, 0, 43);
+  background: radial-gradient(circle at var(--gradient-x) var(--gradient-y), var(--bg-1) 0%, var(--bg-2) 100%);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  /* This relies on JavaScript changing --gradient-x/y dynamically over time to trigger the transition */
+  transition: --gradient-x 30s ease-in-out, --gradient-y 30s ease-in-out;
+  animation: 1s ease-out loadIn;
+}
+
+/* Scrollbars */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--color-2);
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: var(--color-4);
+}
+
+/* Load In Animation */
+@keyframes loadIn {
+  0% { opacity: 0; transform: translateY(-32px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://gstatic.com) format('woff2');
+}
