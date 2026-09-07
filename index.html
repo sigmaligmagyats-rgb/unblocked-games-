@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragons Breath | Unblocked</title>
-    <!-- Selenite-style modern font integration -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- Left Dashboard Control Sidebar -->
+    <!-- Left Control Sidebar -->
     <aside class="sidebar">
         <div class="logo-container">
             <div class="logo-indicator"></div>
@@ -24,41 +23,62 @@
         </ul>
     </aside>
 
-    <!-- Main Dynamic Application Window -->
+    <!-- Main View Window -->
     <main class="viewport-window">
         <header class="app-header">
-            <h2 id="viewHeading">All Projects</h2>
-            <div class="search-container">
-                <input type="text" class="search-input" id="directorySearch" placeholder="Search unblocked listings...">
+            <h2 id="viewHeading">Home</h2>
+            <div class="search-container" id="headerSearchWrapper">
+                <input type="text" class="search-input" id="directorySearch" placeholder="Search items...">
             </div>
         </header>
 
-        <!-- Project Directory Layout Grid -->
-        <section class="item-grid" id="directoryGrid">
-            <!-- Game Card Item 1 -->
-            <a href="games/retro-bowl/index.html" class="item-card">
-                <div class="item-preview">RB</div>
-                <div class="item-title">Retro Bowl</div>
-                <div class="item-tag">Sports</div>
-            </a>
+        <!-- HOME PANEL -->
+        <section id="panel-home" class="view-panel active">
+            <p class="panel-welcome">Welcome to Dragons Breath. Choose a category from the sidebar to get started.</p>
+        </section>
 
-            <!-- Game Card Item 2 -->
-            <a href="games/slope/index.html" class="item-card">
-                <div class="item-preview">SL</div>
-                <div class="item-title">Slope</div>
-                <div class="item-tag">Arcade</div>
-            </a>
+        <!-- GAMES PANEL -->
+        <section id="panel-games" class="view-panel">
+            <div class="item-grid">
+                <a href="games/retro-bowl/index.html" class="item-card">
+                    <div class="item-preview">RB</div>
+                    <div class="item-title">Retro Bowl</div>
+                    <div class="item-tag">Sports</div>
+                </a>
+                <a href="games/slope/index.html" class="item-card">
+                    <div class="item-preview">SL</div>
+                    <div class="item-title">Slope</div>
+                    <div class="item-tag">Arcade</div>
+                </a>
+            </div>
+        </section>
 
-            <!-- Game Card Item 3 -->
-            <a href="games/subway-surfers/index.html" class="item-card">
-                <div class="item-preview">SS</div>
-                <div class="item-title">Subway Surfers</div>
-                <div class="item-tag">Runner</div>
-            </a>
+        <!-- APPS PANEL -->
+        <section id="panel-apps" class="view-panel">
+            <div class="item-grid">
+                <a href="apps/discord/index.html" class="item-card">
+                    <div class="item-preview">DC</div>
+                    <div class="item-title">Discord Proxy</div>
+                    <div class="item-tag">Chat</div>
+                </a>
+                <a href="apps/youtube/index.html" class="item-card">
+                    <div class="item-preview">YT</div>
+                    <div class="item-title">YouTube Mirror</div>
+                    <div class="item-tag">Video</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- SETTINGS PANEL -->
+        <section id="panel-settings" class="view-panel">
+            <div class="settings-box">
+                <h3>Preferences</h3>
+                <p style="color: var(--text-muted); margin-top: 10px;">Configure your layout engine and deployment parameters.</p>
+            </div>
         </section>
     </main>
 
-    <!-- Application Script Asset Router -->
     <script src="assets/js/app.js"></script>
 </body>
 </html>
+
