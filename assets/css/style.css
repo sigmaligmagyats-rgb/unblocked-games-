@@ -1,10 +1,10 @@
-/* --- Application Style Variables --- */
+/* --- Dragons Breath Application Style Variables --- */
 :root {
     --base-dark: #0d060c;         /* Deep pitaya seed dark backing */
     --panel-dark: #170b16;        /* Heavy crimson berry secondary */
     --card-dark: #221021;         /* Bright magenta pulp shading */
     
-    /* Neon Highlight Variables */
+    /* Neon Highlights */
     --pink-core: #ff1493;         /* Electric dragon fruit hot pink */
     --lime-core: #a3ff14;         /* Radiant dragon breath neon green */
     --pink-glow: rgba(255, 14, 147, 0.25);
@@ -27,7 +27,7 @@ body {
     color: var(--text-light);
     display: flex;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden; /* Lock browser scroll bars for clean web app look */
 }
 
 /* --- Fixed Selenite Sidebar Framing --- */
@@ -94,12 +94,14 @@ body {
     background-color: rgba(255, 14, 147, 0.06);
 }
 
-/* --- Content Screen Window Elements --- */
+/* --- Content Screen Processing Workspace --- */
 .viewport-window {
     margin-left: 260px;
     flex: 1;
     padding: 40px;
-    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .app-header {
@@ -136,7 +138,27 @@ body {
     box-shadow: 0 0 15px var(--lime-glow);
 }
 
-/* --- Cards Directory Grid --- */
+/* --- View Panels --- */
+.view-panel {
+    display: none;
+    flex: 1;
+}
+
+.view-panel.active {
+    display: block;
+}
+
+#panel-theater.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-welcome {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* --- Interactive Catalog Cards --- */
 .item-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -147,12 +169,14 @@ body {
     background-color: var(--card-dark);
     border: 1px solid var(--frame-border);
     border-radius: 14px;
-    text-decoration: none;
+    text-align: left;
     color: white;
+    cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
     padding: 12px;
+    width: 100%;
 }
 
 .item-card:hover {
@@ -200,24 +224,50 @@ body {
     color: var(--text-muted);
     margin-top: 4px;
 }
-/* --- Dynamic Panel View Rules --- */
-.view-panel {
-    display: none;
+
+/* --- THEATER SYSTEM RULES --- */
+.theater-controls {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
 }
 
-.view-panel.active {
-    display: block;
-}
-
-.panel-welcome {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-}
-
-.settings-box {
+.control-btn {
     background-color: var(--card-dark);
     border: 1px solid var(--frame-border);
-    padding: 30px;
-    border-radius: 14px;
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
+.control-btn:hover {
+    border-color: var(--pink-core);
+    color: var(--pink-core);
+    background-color: rgba(255, 14, 147, 0.05);
+}
+
+#fullscreenBtn:hover {
+    border-color: var(--lime-core);
+    color: var(--lime-core);
+    background-color: rgba(163, 255, 20, 0.05);
+}
+
+.iframe-container {
+    flex: 1;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--frame-border);
+    position: relative;
+}
+
+#gameTheaterFrame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    position: absolute;
+    inset: 0;
+}
