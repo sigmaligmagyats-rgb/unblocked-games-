@@ -1,1 +1,203 @@
+/* --- Dragons Breath Application Style Variables --- */
+:root {
+    --base-dark: #0d060c;         /* Deep pitaya seed dark backing */
+    --panel-dark: #170b16;        /* Heavy crimson berry secondary */
+    --card-dark: #221021;         /* Bright magenta pulp shading */
+    
+    /* Neon Highlight Variables */
+    --pink-core: #ff1493;         /* Electric dragon fruit hot pink */
+    --lime-core: #a3ff14;         /* Radiant dragon breath neon green */
+    --pink-glow: rgba(255, 14, 147, 0.25);
+    --lime-glow: rgba(163, 255, 20, 0.2);
+    
+    --text-light: #fff0f5;        /* Ice-white pink tint */
+    --text-muted: #b59cb3;        /* Ash-purple descriptor text */
+    --frame-border: #331831;      /* Core surface seam separation */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--base-dark);
+    color: var(--text-light);
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Fixed Selenite Sidebar Framing --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--panel-dark);
+    border-right: 1px solid var(--frame-border);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    z-index: 10;
+}
+
+.logo-container {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.5px;
+}
+
+.logo-indicator {
+    width: 12px;
+    height: 12px;
+    background-color: var(--pink-core);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--pink-core);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-link a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+/* Custom Active Indicator Uses Radiant Lime */
+.nav-link.active a {
+    color: var(--lime-core);
+    background-color: rgba(163, 255, 20, 0.05);
+    border-left: 3px solid var(--lime-core);
+    border-radius: 0 8px 8px 0;
+    padding-left: 12px;
+}
+
+.nav-link a:hover {
+    color: var(--pink-core);
+    background-color: rgba(255, 14, 147, 0.06);
+}
+
+/* --- Content Screen Window Elements --- */
+.viewport-window {
+    margin-left: 260px;
+    flex: 1;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+#viewHeading {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.search-container {
+    position: relative;
+    width: 320px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--card-dark);
+    border: 1px solid var(--frame-border);
+    border-radius: 10px;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: var(--lime-core);
+    box-shadow: 0 0 15px var(--lime-glow);
+}
+
+/* --- Cards Directory Grid --- */
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.item-card {
+    background-color: var(--card-dark);
+    border: 1px solid var(--frame-border);
+    border-radius: 14px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.item-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink-core);
+    box-shadow: 0 10px 20px rgba(255, 14, 147, 0.12);
+}
+
+.item-card:hover .item-title {
+    color: var(--lime-core);
+}
+
+.item-preview {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--panel-dark);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.item-card:hover .item-preview {
+    border-color: rgba(163, 255, 20, 0.25);
+}
+
+.item-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+}
+
+.item-tag {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
 
