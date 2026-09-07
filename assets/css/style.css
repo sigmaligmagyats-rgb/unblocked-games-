@@ -200,4 +200,24 @@ body {
     color: var(--text-muted);
     margin-top: 4px;
 }
+/* --- Dynamic Panel View Rules --- */
+.view-panel {
+    display: none;
+}
+
+.view-panel.active {
+    display: block;
+}
+
+.panel-welcome {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.settings-box {
+    background-color: var(--card-dark);
+    border: 1px solid var(--frame-border);
+    padding: 30px;
+    border-radius: 14px;
+}
 
