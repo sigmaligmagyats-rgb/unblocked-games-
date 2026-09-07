@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragons Breath | Unblocked</title>
+    <!-- Premium sans font setup -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- Left Control Sidebar -->
+    <!-- Left Dashboard Control Sidebar -->
     <aside class="sidebar">
         <div class="logo-container">
             <div class="logo-indicator"></div>
@@ -19,61 +20,97 @@
             <li class="nav-link active" data-tab="home"><a href="#">Home</a></li>
             <li class="nav-link" data-tab="games"><a href="#">Games</a></li>
             <li class="nav-link" data-tab="apps"><a href="#">Apps</a></li>
-            <li class="nav-link" data-tab="settings"><a href="#">Settings</a></li>
         </ul>
     </aside>
 
     <!-- Main View Window -->
     <main class="viewport-window">
-        <header class="app-header">
+        <header class="app-header" id="mainHeader">
             <h2 id="viewHeading">Home</h2>
             <div class="search-container" id="headerSearchWrapper">
                 <input type="text" class="search-input" id="directorySearch" placeholder="Search items...">
             </div>
         </header>
 
-        <!-- HOME PANEL -->
+        <!-- PANEL: HOME -->
         <section id="panel-home" class="view-panel active">
-            <p class="panel-welcome">Welcome to Dragons Breath. Choose a category from the sidebar to get started.</p>
+            <p class="panel-welcome">Welcome to Dragons Breath. Select a navigation link on the left sidebar to browse your library.</p>
         </section>
 
-        <!-- GAMES PANEL -->
+        <!-- PANEL: GAMES -->
         <section id="panel-games" class="view-panel">
             <div class="item-grid">
-                <a href="games/retro-bowl/index.html" class="item-card">
-                    <div class="item-preview">RB</div>
-                    <div class="item-title">Retro Bowl</div>
-                    <div class="item-tag">Sports</div>
-                </a>
-                <a href="games/slope/index.html" class="item-card">
-                    <div class="item-preview">SL</div>
-                    <div class="item-title">Slope</div>
+                <!-- Ultrakill Prelude Web Port -->
+                <button class="item-card" data-src="https://github.io">
+                    <div class="item-preview">UK</div>
+                    <div class="item-title">Ultrakill</div>
+                    <div class="item-tag">Fast FPS</div>
+                </button>
+
+                <!-- Cloverpit -->
+                <button class="item-card" data-src="https://github.io">
+                    <div class="item-preview">CP</div>
+                    <div class="item-title">Cloverpit</div>
                     <div class="item-tag">Arcade</div>
-                </a>
+                </button>
+
+                <!-- The Binding of Isaac -->
+                <button class="item-card" data-src="https://duckmath.org">
+                    <div class="item-preview">BOI</div>
+                    <div class="item-title">The Binding of Isaac</div>
+                    <div class="item-tag">Roguelike</div>
+                </button>
+
+                <!-- Minecraft Classic HTML5 -->
+                <button class="item-card" data-src="https://minecraft.net">
+                    <div class="item-preview">MC</div>
+                    <div class="item-title">Minecraft Classic</div>
+                    <div class="item-tag">Sandbox</div>
+                </button>
+
+                <!-- Five Nights at Freddy's -->
+                <button class="item-card" data-src="https://jsdelivr.net">
+                    <div class="item-preview">FN</div>
+                    <div class="item-title">FNAF 1</div>
+                    <div class="item-tag">Horror</div>
+                </button>
+
+                <!-- Run 3 -->
+                <button class="item-card" data-src="https://jsdelivr.net">
+                    <div class="item-preview">R3</div>
+                    <div class="item-title">Run 3</div>
+                    <div class="item-tag">Runner</div>
+                </button>
+
+                <!-- Scale the Depths -->
+                <button class="item-card" data-src="https://scalethedepths.io">
+                    <div class="item-preview">SD</div>
+                    <div class="item-title">Scale the Depths</div>
+                    <div class="item-tag">Arcade</div>
+                </button>
             </div>
         </section>
 
-        <!-- APPS PANEL -->
+        <!-- PANEL: APPS -->
         <section id="panel-apps" class="view-panel">
             <div class="item-grid">
-                <a href="apps/discord/index.html" class="item-card">
-                    <div class="item-preview">DC</div>
-                    <div class="item-title">Discord Proxy</div>
-                    <div class="item-tag">Chat</div>
-                </a>
-                <a href="apps/youtube/index.html" class="item-card">
-                    <div class="item-preview">YT</div>
-                    <div class="item-title">YouTube Mirror</div>
-                    <div class="item-tag">Video</div>
-                </a>
+                <!-- Advanced Google Proxy Extension Script -->
+                <button class="item-card" data-src="https://google.com">
+                    <div class="item-preview">PRX</div>
+                    <div class="item-title">Google Script Proxy</div>
+                    <div class="item-tag">Bypass Proxy</div>
+                </button>
             </div>
         </section>
 
-        <!-- SETTINGS PANEL -->
-        <section id="panel-settings" class="view-panel">
-            <div class="settings-box">
-                <h3>Preferences</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">Configure your layout engine and deployment parameters.</p>
+        <!-- PANEL: THEATER / DYNAMIC GAME PLAYER -->
+        <section id="panel-theater" class="view-panel">
+            <div class="theater-controls">
+                <button class="control-btn" id="closeTheaterBtn">← Exit Game</button>
+                <button class="control-btn" id="fullscreenBtn">🗖 Fullscreen</button>
+            </div>
+            <div class="iframe-container">
+                <iframe id="gameTheaterFrame" src="" allow="autoplay; fullscreen; gamepad; clipboard-write" allowfullscreen="" scrolling="no"></iframe>
             </div>
         </section>
     </main>
@@ -81,4 +118,3 @@
     <script src="assets/js/app.js"></script>
 </body>
 </html>
-
